@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="batch">
+	<select id="select" resultType="dto">
+		SELECT * FROM BATCH_USER
+	</select>
+	
+	<insert id="insert">
+		INSERT INTO BATCH_USER VALUES(#{username}, #{password}, SYSDATE)
+	</insert>
+	
+	<update id="update">
+		UPDATE BATCH_USER SET
+		PASSWORD = #{password}, REGDATE = SYSDATE
+		WHERE USERNAME = #{username}
+	</update>
+</mapper>
